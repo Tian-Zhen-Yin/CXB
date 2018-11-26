@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".IndexFragment"
+   >
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="false">
+
+            <include layout="@layout/title" />
+            <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+                <com.example.administrator.bottomguide.View.CardiographView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+                </com.example.administrator.bottomguide.View.CardiographView>
+
+                <com.example.administrator.bottomguide.View.PathView
+                    android:id="@+id/path_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="0dp" />
+            </RelativeLayout>
+
+            <include layout="@layout/heart_item"/>
+            <include layout="@layout/cardview"/>
+
+            <include layout="@layout/now" />
+            <include layout="@layout/forecast"/>
+            <include layout="@layout/suggestion"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/nav_menu">
+
+        </android.support.design.widget.NavigationView>
+    </android.support.v4.widget.DrawerLayout>
+
+</FrameLayout>
