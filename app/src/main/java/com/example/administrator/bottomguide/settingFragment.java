@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 /**
@@ -51,14 +52,14 @@ public class settingFragment extends Fragment {
         return fragment;
     }
 
-    @Override
+   /* @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
 
         }
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -105,4 +106,16 @@ public class settingFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }*/
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        super.onHiddenChanged(hidden);
+        if (hidden){
+            //Fragment隐藏时调用
+            Toast.makeText(getActivity(),"隐藏fragment 2",Toast.LENGTH_SHORT).show();
+        }else {
+            //Fragment显示时调用
+            Toast.makeText(getActivity(),"显示fragment 1",Toast.LENGTH_SHORT).show();
+        }
+    }
 }

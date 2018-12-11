@@ -6,6 +6,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 
@@ -14,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.bottomguide.Model.DataBean;
@@ -39,6 +43,7 @@ public class IndexFragment extends Fragment implements OnBannerListener {
     private PathView pathView;
     private DataBean dataBean;
     public ArrayList<Integer> data_source=new ArrayList<>( );
+    private List<Health> healthList=new ArrayList<>();
     View recordView;
 
 
@@ -74,7 +79,7 @@ public class IndexFragment extends Fragment implements OnBannerListener {
         recordView=inflater.inflate(R.layout.fragment_index, container, false);
         initData();
         //data_source.add(1);
-        pathView=(PathView)recordView.findViewById(R.id.path_view);
+        pathView=(PathView)recordView.findViewById(R.id.path_view); //动画路径
         pathView.setDataList(data_source);
         initBanner();
         mDrawerLayout=(DrawerLayout)recordView.findViewById(R.id.drawer_layout);
@@ -87,8 +92,29 @@ public class IndexFragment extends Fragment implements OnBannerListener {
             }
         });
 
+        initHealth();//初始化健康数据
+        RecyclerView recyclerView=(RecyclerView)recordView.findViewById(R.id.recycler_view);
+       LinearLayoutManager layoutManager;
+        layoutManager = new LinearLayoutManager(recordView.getContext());
+
+        recyclerView.setLayoutManager(layoutManager);
+        HealthAdapter adapter=new HealthAdapter(healthList);
+        recyclerView.setAdapter(adapter);
 
         return recordView;
+    }
+
+    private void initHealth() {
+        if(healthList.size()==0) {
+            Health heart = new Health(R.drawable.hearaterate01, "心率", "65");
+            healthList.add(heart);
+            Health blood_pressure = new Health(R.drawable.bloodpressure, "血压", "125");
+            healthList.add(blood_pressure);
+            Health blood_suger = new Health(R.drawable.suger, "血糖", "60");
+            healthList.add(blood_suger);
+            Health heat = new Health(R.drawable.tiweng, "体温", "37.1");
+            healthList.add(heat);
+        }
     }
 
     private void initData() {
@@ -97,7 +123,6 @@ public class IndexFragment extends Fragment implements OnBannerListener {
             data_source.add(i);
         }
     }
-
 
     //初始化轮播器
     private void initBanner() {
@@ -150,4 +175,17 @@ public class IndexFragment extends Fragment implements OnBannerListener {
 
     }
 
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        super.onHiddenChanged(hidden);
+        if (hidden){
+            //Fragment隐藏时调用
+            Toast.makeText(getActivity(),"隐藏fragment 1",Toast.LENGTH_SHORT).show();
+        }else {
+            //Fragment显示时调用
+            Toast.makeText(getActivity(),"显示fragment 1",Toast.LENGTH_SHORT).show();
+        }
+    }
 }
