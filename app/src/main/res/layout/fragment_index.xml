@@ -95,7 +95,7 @@
 
                     <include layout="@layout/blood_suger" />
 
-                    <include layout="@layout/heat_item" />-->
+                    <include layout="@layout/rank_item" />-->
 
                 </LinearLayout>
 

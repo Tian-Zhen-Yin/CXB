@@ -16,11 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.administrator.bottomguide.Adapter.HealthAdapter;
 import com.example.administrator.bottomguide.Model.DataBean;
+import com.example.administrator.bottomguide.Model.Health;
 import com.example.administrator.bottomguide.View.PathView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -81,7 +82,9 @@ public class IndexFragment extends Fragment implements OnBannerListener {
         //data_source.add(1);
         pathView=(PathView)recordView.findViewById(R.id.path_view); //动画路径
         pathView.setDataList(data_source);
+        //设置轮播器
         initBanner();
+        //设置抽屉
         mDrawerLayout=(DrawerLayout)recordView.findViewById(R.id.drawer_layout);
         NavigationView navView=(NavigationView)recordView.findViewById(R.id.nav_view);
         navButton=(Button)recordView.findViewById(R.id.nav_button);
@@ -94,7 +97,7 @@ public class IndexFragment extends Fragment implements OnBannerListener {
 
         initHealth();//初始化健康数据
         RecyclerView recyclerView=(RecyclerView)recordView.findViewById(R.id.recycler_view);
-       LinearLayoutManager layoutManager;
+        LinearLayoutManager layoutManager;
         layoutManager = new LinearLayoutManager(recordView.getContext());
 
         recyclerView.setLayoutManager(layoutManager);
@@ -175,6 +178,10 @@ public class IndexFragment extends Fragment implements OnBannerListener {
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {

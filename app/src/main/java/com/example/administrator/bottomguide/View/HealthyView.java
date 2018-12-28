@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
@@ -23,7 +24,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 import android.util.TypedValue;
+
+import com.example.administrator.bottomguide.GuideActivity;
+import com.example.administrator.bottomguide.MainActivity;
 import com.example.administrator.bottomguide.R;
+import com.example.administrator.bottomguide.RankActivity;
 
 public class HealthyView extends View {
     private static String TAG="HealthyView";
@@ -409,7 +414,7 @@ public class HealthyView extends View {
         rectF.bottom = mHeight;
         if (rectF.contains(event.getX(), event.getY())) {//当前点击的坐标在右下角的范围内
             //在这里可以做点击事件的监听
-            Toast.makeText(mContext, "带开发", Toast.LENGTH_LONG).show();
+            mContext.startActivity(new Intent(mContext,RankActivity.class));
             return false;
         } else {
             return super.onTouchEvent(event);

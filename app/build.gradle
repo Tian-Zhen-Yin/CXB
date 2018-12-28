@@ -16,6 +16,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi'//, 'x86_64'//只打包armeabi平台的，就算有其他文件夹也不管
+
+        }
+    }
 }
 
 dependencies {
