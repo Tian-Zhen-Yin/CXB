@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
+        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -46,7 +47,8 @@
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".BottomBarActivity" />
-        <activity android:name=".RankActivity"></activity>
+        <activity android:name=".RankActivity" />
+        <activity android:name=".View.AddRelationActivity"></activity>
     </application>
 
 </manifest>

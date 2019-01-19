@@ -36,7 +36,7 @@ public class GuideActivity extends CheckPermissionsActivity implements INaviInfo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        onBackPressed();
         Poi start = new Poi("金陵科技学院", new LatLng(31.90387,118.89972), "");
         /**终点传入的是北京站坐标,但是POI的ID "B000A83M61"对应的是北京西站，所以实际算路以北京西站作为终点**/
         Poi end = new Poi("北京站", new LatLng(39.904556, 116.427231), "B000A83M61");

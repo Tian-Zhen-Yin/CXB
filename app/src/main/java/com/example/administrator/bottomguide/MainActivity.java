@@ -14,21 +14,35 @@ import android.widget.RadioGroup;
 
 /*import com.example.administrator.bottomguide.Guide.BaseCustomActivity;*/
 
-import static com.example.administrator.bottomguide.R.id.fragment_container;
-
 
 public class MainActivity extends AppCompatActivity {
     private RadioGroup mTabRadioGroup;//按钮组
     private SparseArray<Fragment> mFragmentSparesArry;//fragment组
     private Fragment currentFragment=new Fragment();
     /*private IndexFragment index=IndexFragment.newInstance("体检");
-    private contactFragment contact=contactFragment.newInstance("记录");
+    private ContactFragment contact=ContactFragment.newInstance("记录");
     private healthFragment health=healthFragment.newInstance("健康");
     */
+
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_style);
+
+        initView();
+        //导航栏默认显示第一个
+        /*getSupportFragmentManager().beginTransaction().add(fragment_container,mFragmentSparesArry.get(R.id.index_tab)).commit();
+*/
+    }
     /*动态切换Fragment*/
     private FragmentTransaction switchFragment(Fragment targetFragment)
     {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
         if(!targetFragment.isAdded())
         {
             //第一次使用switchFragment()时currentFragement为null,
@@ -36,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 transaction.hide(currentFragment);
             }
-           transaction.add(R.id.fragment_container,targetFragment,currentFragment.getClass().getName());
+            transaction.add(R.id.fragment_container,targetFragment,currentFragment.getClass().getName());
         }
         else
         {
@@ -48,16 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_style);
-
-        initView();
-    }
-
     private void initView() {
         //底部导航栏
         mTabRadioGroup=findViewById(R.id.tabs_rg);
@@ -66,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentSparesArry=new SparseArray<>();
         mFragmentSparesArry.append(R.id.index_tab,IndexFragment.newInstance("体检"));
         mFragmentSparesArry.append(R.id.record_tab,settingFragment.newInstance("记录"));
-        mFragmentSparesArry.append(R.id.contact_tab,contactFragment.newInstance("导航"));
+        mFragmentSparesArry.append(R.id.contact_tab,ContactFragment.newInstance("导航"));
         mFragmentSparesArry.append(R.id.settings_tab,healthFragment.newInstance("设置"));
 
 
@@ -77,22 +81,20 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("当前Fragment",mFragmentSparesArry.get(checkedId).toString());
             }
         });
-
         //导航栏默认显示第一个
-        getSupportFragmentManager().beginTransaction().add(fragment_container,mFragmentSparesArry.get(R.id.index_tab)).commit();
+        switchFragment(mFragmentSparesArry.get(R.id.index_tab)).commit();
 
         findViewById(R.id.sign_iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(this!=null) {
-                    finishActivity(0);
-                    startActivity(new Intent(MainActivity.this, GuideActivity.class).setFlags((Intent.FLAG_ACTIVITY_CLEAR_TOP)));
-
+                if(this!=null)
+                {
+                    MainActivity.this.currentFragment.isHidden();//当跳转到导航活动的时候,隐藏当前的fragment,否则会出现fragment叠加的现象
                 }
+                startActivity(new Intent(MainActivity.this, GuideActivity.class).setFlags((Intent.FLAG_ACTIVITY_CLEAR_TOP)));
             }
         });
 
     }
 
 }
-0
