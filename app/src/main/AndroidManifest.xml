@@ -15,14 +15,28 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
 
     <application
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="Lara"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="车行宝"
+        android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
@@ -32,8 +46,8 @@
         <service android:name="com.amap.api.location.APSService" />
 
         <activity
-            android:name=".MainActivity"
-            android:label="Lara">
+            android:name=".SplashScreenActivity"
+            android:label="车行宝">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,7 +62,9 @@
         <activity android:name=".GuideActivity" />
         <activity android:name=".BottomBarActivity" />
         <activity android:name=".RankActivity" />
-        <activity android:name=".View.AddRelationActivity"></activity>
+        <activity android:name=".View.AddRelationActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

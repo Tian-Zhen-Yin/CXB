@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: "com.mob.sdk"
 
 android {
     compileSdkVersion 28
@@ -9,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -20,6 +22,11 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+            res.srcDirs = ['src/main/res',
+                           'src/main/res/login_new/drawable',
+                           'src/main/res/drawable/login'
+
+            ]
         }
     }
     splits {
@@ -30,6 +37,12 @@ android {
 
         }
     }
+}
+MobSDK {
+    //写你创建应用的appkey和appsecret
+    appKey "29f1b86f91337"
+    appSecret "f1e0c51ed30c35c2f9369197d3241611"
+    SMSSDK {}
 }
 
 dependencies {
@@ -49,6 +62,15 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.4'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
+    implementation 'com.squareup.okhttp3:okhttp:3.0.0-RC1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.0.0-RC1'
+    implementation 'io.reactivex:rxandroid:1.1.0'
+    implementation 'com.android.support:multidex:1.0.3'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

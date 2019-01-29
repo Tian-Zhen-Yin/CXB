@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:fitsSystemWindows="true"
+   >
+
+    <Button
+        android:id="@+id/help"
+        android:layout_width="43dp"
+        android:layout_height="26dp"
+        android:alpha="0.5"
+        android:background="@drawable/text_borderview"
+        android:text="帮助"
+        android:textColor="#003595"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="欢迎登录车行宝"
+        android:textSize="30sp"
+        android:textColor="#B3CADC"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="65dp"
+        android:paddingLeft="40dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/center"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/phone" />
+
+            <EditText
+                android:id="@+id/phone_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:autofillHints="@string/bottom_center"
+                android:background="@drawable/login_edittext"
+                android:hint="请输入手机号"
+                android:inputType="phone"
+                android:textColorHint="#B3CADC"
+                android:textSize="20sp" />
+            <!-- android:drawableLeft="@drawable/phone"设置左右端的图标
+                android:drawableRight="@drawable/arrow"-->
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/cancel"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/alpha_85_white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="45dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/check" />
+
+            <EditText
+                android:id="@+id/check_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:autofillHints="@string/bottom_center"
+                android:background="@drawable/login_edittext"
+                android:inputType="number"
+                android:textColorHint="#B3CADC"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/send"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_border_round"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="#B3cadc"
+                android:textStyle="bold" />
+            <!--  android:drawableLeft="@drawable/check"-->
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/center_body"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/alpha_85_white" />
+        <TextView
+            android:id="@+id/btn_login"
+            android:layout_below="@id/center_body"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/login_button_border"
+            android:text="登  录"
+            android:textColor="#B3cadc"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/varity_way"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/center"
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:id="@+id/qq_login"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/qq" />
+
+        <ImageView
+            android:id="@+id/wechat_login"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="40dp"
+            android:layout_toLeftOf="@+id/qq_login"
+            android:background="@drawable/wechat" />
+
+
+        <ImageView
+            android:id="@+id/weibo_login"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_toRightOf="@+id/qq_login"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/weibo" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/varity_way"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:alpha="0.5"
+            android:text="登录代表您已同意"
+            android:textAlignment="textEnd"
+            android:textColor="#B3cadc"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="车行宝用户协议、隐私政策"
+            android:textAlignment="textStart"
+            android:textColor="#B3cadc"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</RelativeLayout>

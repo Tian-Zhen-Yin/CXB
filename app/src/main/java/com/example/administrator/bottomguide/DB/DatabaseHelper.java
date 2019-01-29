@@ -43,6 +43,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor=db.query(TABLE_NAME,null,null,null,null,null,null);
         return cursor;
     }
+    //修改
+    public void update(ContentValues values,String tp)
+    {
+        SQLiteDatabase db=getWritableDatabase();
+        db.update(TABLE_NAME,values,"name=?",new String[]{tp});
+    }
 
     public void close()
     {//数据库不为空,关闭数据库

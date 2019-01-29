@@ -189,10 +189,10 @@ public class IndexFragment extends Fragment implements OnBannerListener {
         super.onHiddenChanged(hidden);
         if (hidden){
             //Fragment隐藏时调用
-            Toast.makeText(getActivity(),"隐藏fragment 1",Toast.LENGTH_SHORT).show();
+           /*     Toast.makeText(getActivity(),"隐藏fragment 1",Toast.LENGTH_SHORT).show();*/
         }else {
             //Fragment显示时调用
-            Toast.makeText(getActivity(),"显示fragment 1",Toast.LENGTH_SHORT).show();
+            /*Toast.makeText(getActivity(),"显示fragment 1",Toast.LENGTH_SHORT).show();*/
         }
     }
 }

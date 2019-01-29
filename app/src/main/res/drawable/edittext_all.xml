@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+     <SPAN style="LINE-HEIGHT: 1.5; FONT-SIZE: 1em">
+    <!--</SPAN><SPAN style="LINE-HEIGHT: 1.5; FONT-SIZE: 1em"> 因为的登录背景颜色为白色，所以设置成了白色，如果如其他颜色，根据自己的要求来设定-->
+</SPAN>
+    <corners android:radius="3dip"/>
+    <stroke
+        android:width="0dip"/>
+    <SPAN style="LINE-HEIGHT: 1.5; FONT-SIZE: 1em"><!--</SPAN><SPAN style="LINE-HEIGHT: 1.5; FONT-SIZE: 1em">边框宽度为0--></SPAN>
+    android:color="#ffffff" />
+</shape>

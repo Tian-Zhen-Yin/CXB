@@ -1,6 +1,7 @@
 package com.example.administrator.bottomguide;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 
 /*import com.example.administrator.bottomguide.Guide.BaseCustomActivity;*/
@@ -21,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private Fragment currentFragment=new Fragment();
     /*private IndexFragment index=IndexFragment.newInstance("体检");
     private ContactFragment contact=ContactFragment.newInstance("记录");
-    private healthFragment health=healthFragment.newInstance("健康");
+    private TerminalFragment health=TerminalFragment.newInstance("健康");
     */
 
-
+    private ImageView imageView;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_style);
 
         initView();
+
+
         //导航栏默认显示第一个
         /*getSupportFragmentManager().beginTransaction().add(fragment_container,mFragmentSparesArry.get(R.id.index_tab)).commit();
 */
@@ -71,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         mFragmentSparesArry.append(R.id.index_tab,IndexFragment.newInstance("体检"));
         mFragmentSparesArry.append(R.id.record_tab,settingFragment.newInstance("记录"));
         mFragmentSparesArry.append(R.id.contact_tab,ContactFragment.newInstance("导航"));
-        mFragmentSparesArry.append(R.id.settings_tab,healthFragment.newInstance("设置"));
+        mFragmentSparesArry.append(R.id.settings_tab,TerminalFragment.newInstance("设置"));
 
 
         mTabRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

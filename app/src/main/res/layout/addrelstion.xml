@@ -43,6 +43,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/text_view_border2"
                 android:text="姓名:"
+
                 android:textColor="@color/alpha_75_colorPrimary"
                 android:textSize="16dp" />
 
@@ -50,6 +51,8 @@
                 android:id="@+id/addName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/text_view_border2" />
         </LinearLayout>
@@ -76,6 +79,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
                 android:background="@drawable/text_view_border2" />
         </LinearLayout>
 
