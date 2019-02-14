@@ -4,25 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/welcom_bg"
+    android:background="@drawable/welcome"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/appImage"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"
-        android:src="@mipmap/icon" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:text="Welcome To CheXinBao"
-        android:textColor="#B3cadf"
-        android:textSize="30sp" />
 
 </LinearLayout>

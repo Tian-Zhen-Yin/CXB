@@ -36,7 +36,7 @@
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="车行宝"
-        android:roundIcon="@mipmap/icon"
+        android:roundIcon="@mipmap/icon_72"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data

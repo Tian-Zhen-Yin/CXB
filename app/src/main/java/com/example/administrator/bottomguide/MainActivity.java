@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         mFragmentSparesArry=new SparseArray<>();
         mFragmentSparesArry.append(R.id.index_tab,IndexFragment.newInstance("体检"));
-        mFragmentSparesArry.append(R.id.record_tab,settingFragment.newInstance("记录"));
+        mFragmentSparesArry.append(R.id.record_tab,settingFragment.newInstance("设备"));
         mFragmentSparesArry.append(R.id.contact_tab,ContactFragment.newInstance("导航"));
         mFragmentSparesArry.append(R.id.settings_tab,TerminalFragment.newInstance("设置"));
 
