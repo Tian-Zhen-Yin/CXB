@@ -30,10 +30,10 @@ public class RankActivity extends AppCompatActivity {
     }
 
     private void initRank() {
-        for(int i=1;i<=3;i++) {
-            rankList.add(new Rank("2",R.drawable.touxiang01,"Lucky","1.5"));
-            rankList.add(new Rank("3",R.drawable.touxiang02,"Lucky","1.2"));
-            rankList.add(new Rank("4",R.drawable.touxiang03,"Lucky","1.0"));
+        for(int i=1;i<=10;i++) {
+            rankList.add(new Rank("suger_cart",R.drawable.touxiang01,"Lucky","1.5"));
+            rankList.add(new Rank("bp_cart",R.drawable.touxiang02,"Lucky","1.suger_cart"));
+            rankList.add(new Rank("heart",R.drawable.touxiang03,"Lucky","1.0"));
             rankList.add(new Rank("5",R.drawable.touxiang04,"Lucky","0.9"));
             rankList.add(new Rank("6",R.drawable.touxiang05,"Lucky","0.1"));
         }

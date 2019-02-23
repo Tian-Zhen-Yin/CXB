@@ -13,109 +13,70 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/nav_button"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/nav_button" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-30dp"
+                android:src="@mipmap/index_top" />
+
+            <com.example.administrator.bottomguide.View.HealthyView
+                android:id="@+id/time_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/data_model"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_below="@+id/time_model"
+                android:layout_marginTop="-25dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/hea_button"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:button="@null"
+                    android:background="@drawable/heanth_model_seletor"
+                    />
+
+                <Button
+                    android:id="@+id/env_button"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:button="@null"
+                    android:background="@drawable/environ_model_seletor"
+                     />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--  <ScrollView
             android:id="@+id/scrollview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="never"
             android:scrollbars="none">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fitsSystemWindows="false"
-                android:orientation="vertical">
 
-                <include layout="@layout/title" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                    <com.example.administrator.bottomguide.View.HealthyView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp" />
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/driving_time_suggrst"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="#2EC3FD"
-                        android:padding="15dp"
-                        android:text="老司机也要及时休息哦"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp" />
-
-                    <!--  <include layout="@layout/cardview"/>-->
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:layout_margin="10dp">
-
-                        <com.example.administrator.bottomguide.View.CardiographView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                        </com.example.administrator.bottomguide.View.CardiographView>
-
-                        <com.example.administrator.bottomguide.View.PathView
-                            android:id="@+id/path_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="100dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginStart="0dp"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginTop="0dp" />
-
-                    </RelativeLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/recycler_view"
-                            android:layout_height="match_parent"
-                            android:layout_width="match_parent"
-                            />
-
-                    </LinearLayout>
-
-                    <!--<include layout="@layout/heart_item" />
-
-                    <include layout="@layout/jiujing_item" />
-
-                    <include layout="@layout/blood_pressure" />
-
-                    <include layout="@layout/blood_suger" />
-
-                    <include layout="@layout/rank_item" />-->
-
-                </LinearLayout>
-
-
-                <include layout="@layout/suggestion" />
-
-                <com.youth.banner.Banner
-                    android:id="@+id/banner"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="10dp" />
-
-
-                <!-- <include layout="@layout/forecast" />
-
-                <include layout="@layout/now" />-->
-
-
-            </LinearLayout>
-        </ScrollView>
+        </ScrollView>-->
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"

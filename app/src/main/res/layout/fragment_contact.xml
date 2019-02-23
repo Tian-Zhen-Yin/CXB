@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/title"
@@ -12,23 +12,42 @@
         android:textColor="#ddd"
         android:textSize="16pt"
         android:gravity="center"/>
-    <ListView
-        android:id="@+id/listView"
+    <LinearLayout
+        android:layout_below="@id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_alignLeft="@+id/title">
-    </ListView>
+        android:orientation="vertical"
+        android:background="@color/alpha_75_gray"
+        android:layout_margin="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="紧急联系人"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="20sp"/>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_below="@+id/title"
+            android:layout_alignLeft="@+id/title"
+            android:layout_alignStart="@+id/title">
+        </ListView>
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listView"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:cropToPadding="false"
+            android:onClick="add"
+            android:src="@mipmap/add" />
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="100dp"
-        android:cropToPadding="false"
-        android:onClick="add"
-        android:src="@mipmap/add" />
+
+
+
 </RelativeLayout>
 

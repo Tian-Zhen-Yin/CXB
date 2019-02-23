@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,10 +14,10 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/tabs_rg"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="-5dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="-56dp" />
 
 <RadioGroup
     android:id="@+id/tabs_rg"
@@ -27,40 +28,40 @@
     android:orientation="horizontal">
 
     <RadioButton
-        android:id="@+id/index_tab"
-        style="@style/Custom.TabRadioButton"
-        android:checked="true"
-        android:drawableTop="@drawable/tab_sign_selector"
-        android:text="" />
-
-    <RadioButton
-        android:id="@+id/record_tab"
-        style="@style/Custom.TabRadioButton"
-        android:drawableTop="@drawable/tab_record_selector"
-        android:text="" />
-
-    <View style="@style/Custom.TabRadioButton" />
-
-    <RadioButton
         android:id="@+id/contact_tab"
         style="@style/Custom.TabRadioButton"
         android:drawableTop="@drawable/tab_contact_selector"
         android:text="" />
 
     <RadioButton
-        android:id="@+id/settings_tab"
+        android:id="@+id/guide_tab"
         style="@style/Custom.TabRadioButton"
-        android:drawableTop="@drawable/tab_setting_selector"
+        android:drawableTop="@drawable/tab_guide_selector"
+        android:text="" />
+
+    <View style="@style/Custom.TabRadioButton" />
+
+    <RadioButton
+        android:id="@+id/device_tab"
+        style="@style/Custom.TabRadioButton"
+        android:drawableTop="@drawable/tab_device_seletor"
+        android:text="" />
+
+    <RadioButton
+        android:id="@+id/personal_tab"
+        style="@style/Custom.TabRadioButton"
+        android:drawableTop="@drawable/tab_personal_seletor"
         android:text="" />
 </RadioGroup>
 
     <ImageView
-        android:id="@+id/sign_iv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/index_tab"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
-        android:src="@mipmap/health" />
+        android:src="@drawable/tab_index_default" />
+
 </RelativeLayout>

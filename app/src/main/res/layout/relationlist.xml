@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/contactlistitem"
     android:orientation="vertical"
-    android:layout_marginRight="10dp"
-    android:layout_marginLeft="10dp"
-    android:padding="10dp"
-    android:background="@drawable/contactlistitem">
+    android:padding="5dp">
+
     <LinearLayout
+        android:id="@+id/relation_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dialog_title"
-        android:layout_alignParentStart="true"
-
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -34,8 +34,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/relation_name"
         android:layout_alignParentTop="true"
-
+        android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
         <TextView
@@ -48,30 +49,34 @@
 
         <TextView
             android:id="@+id/tel"
-            android:layout_width="match_parent"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textSize="16dp"
-            />
+            android:textSize="16dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:orientation="horizontal">
-       <ImageView
-           android:layout_weight="1"
-           android:id="@+id/update"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_gravity="center_horizontal"
-           android:src="@drawable/update"/>
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_alignEnd="@+id/relation_name"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
         <ImageView
-            android:layout_weight="1"
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/delete"/>
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/delete" />
+
+        <ImageView
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:src="@drawable/update" />
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

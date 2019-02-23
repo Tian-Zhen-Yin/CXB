@@ -67,6 +67,7 @@ public class HealthyView extends View {
     private float percent = 0.5f;
 
     private Paint mAvatarPaint;
+    private Rect mSrcRect, mDestRect;
 
 
 
@@ -90,7 +91,7 @@ public class HealthyView extends View {
         setLayerType(View.LAYER_TYPE_SOFTWARE,null);
 
         //自定义View的狂傲比例
-        mRatio=450.f/525.f;
+        mRatio=450.f/450.f;
         //初始化一些默认参数
 
         mBackgroundCorner = DensityUtils.dp2px(mContext, 5);
@@ -116,25 +117,12 @@ public class HealthyView extends View {
         //文字画笔
         mTextPaint = new Paint();
         mTextPaint.setAntiAlias(true);
-        //虚线画笔
-        mDashLinePaint = new Paint();
-        mDashLinePaint.setAntiAlias(true);
-        mDashLinePaint.setColor(Color.parseColor("#C1C1C1"));
-        mDashLinePaint.setStyle(Paint.Style.STROKE);
-        mDashLinePaint.setPathEffect(new DashPathEffect(new float[]{8, 4}, 0));//画虚线
-        //竖条画笔
-        mBarPaint = new Paint();
-        mBarPaint.setColor(mThemeColor);
-        mBarPaint.setAntiAlias(true);
-        mBarPaint.setStrokeCap(Paint.Cap.ROUND);
-        //头像画笔
-        mAvatarPaint = new Paint();
-        mAvatarPaint.setAntiAlias(true);
+
 
         //加入动画
         AnimatorSet animatorSet = new AnimatorSet();
 
-        //步数的动画
+        //时间的动画
         ValueAnimator stepAnimator = ValueAnimator.ofInt(0, mSteps[mSteps.length - 1]);
         stepAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -181,7 +169,7 @@ public class HealthyView extends View {
     }
 
     //将原始图片转化为圆形图片
-    public Bitmap toRoundBitmap(Bitmap bitmap) {
+   /* public Bitmap toRoundBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int r;
@@ -199,9 +187,9 @@ public class HealthyView extends View {
         BitmapShader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP,
                 Shader.TileMode.CLAMP);
         paint.setShader(shader);
-        canvas.drawRoundRect(rect, r / 2, r / 2, paint);
+        canvas.drawRoundRect(rect, r / suger_cart, r / suger_cart, paint);
         return backgroundBmp;
-    }
+    }*/
 
     //计算时间,最大时间和总时间
     private void calculateSteps() {
@@ -217,8 +205,8 @@ public class HealthyView extends View {
     }
 
     //绘制最下层背景
-    private void drawBelowBackground(int left, int top, int right, int bottom, int radius, Canvas canvas, Paint paint) {
-        Path path = new Path();
+    private void drawBelowBackground( Canvas canvas) {
+        /*Path path = new Path();
 
         path.moveTo(left, top);
 
@@ -232,29 +220,12 @@ public class HealthyView extends View {
         path.quadTo(left, bottom, left, bottom - radius);
 
         path.lineTo(left, top + radius);
-        path.quadTo(left, top, left + radius, top);
+        path.quadTo(left, top, left + radius, top);*/
+        Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.index_top);
 
-        canvas.drawPath(path, paint);
+        canvas.drawBitmap(bitmap,mSrcRect,mDestRect,mAvatarPaint);
     }
 
-    //绘制上层背景
-    private void drawUpBackground(int left, int top, int right, int bottom, int radius, Canvas canvas, Paint paint) {
-        Path path = new Path();
-
-        path.moveTo(left, top);
-
-        path.lineTo(right - radius, top);
-        path.quadTo(right, top, right, top + radius);
-
-        path.lineTo(right, bottom);
-
-        path.lineTo(left, bottom);
-
-        path.lineTo(left, top + radius);
-        path.quadTo(left, top, left + radius, top);
-
-        canvas.drawPath(path, paint);
-    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -283,19 +254,20 @@ public class HealthyView extends View {
         mHeight = h;
 
         mArcCenterX = (int) (mWidth / 2.f);
-        mArcCenterY = (int) (160.f / 525.f * mHeight);
+        mArcCenterY = (int) (180.f / 450.f * mHeight);
         mArcRect = new RectF();
         mArcRect.left = mArcCenterX - 125.f / 450.f * mWidth;
-        mArcRect.top = mArcCenterY - 125.f / 525.f * mHeight;
+        mArcRect.top = mArcCenterY - 125.f / 450.f * mHeight;
         mArcRect.right = mArcCenterX + 125.f / 450.f * mWidth;
-        mArcRect.bottom = mArcCenterY + 125.f / 525.f * mHeight;
+        mArcRect.bottom = mArcCenterY + 125.f / 450.f * mHeight;
 
         mArcWidth = 20.f / 450.f * mWidth;
-        mBarWidth = 16.f / 450.f * mWidth;
+
 
         //画笔的宽度一定要在这里设置才能自适应
         mArcPaint.setStrokeWidth(mArcWidth);
-        mBarPaint.setStrokeWidth(mBarWidth);
+
+
     }
 
     @SuppressLint("DrawAllocation")
@@ -308,41 +280,41 @@ public class HealthyView extends View {
         float xPos;
         float yPos;
         //1.绘制最下层背景
-        mBackgroundPaint.setColor(mThemeColor);
-        drawBelowBackground(0, 0, mWidth, mHeight, mBackgroundCorner, canvas, mBackgroundPaint);
-        //2.绘制上面的背景
-        mBackgroundPaint.setColor(mUpBackgroundColor);
-        drawUpBackground(0, 0, mWidth, mWidth, mBackgroundCorner, canvas, mBackgroundPaint);
-        //3.绘制圆弧
-        canvas.drawArc(mArcRect, 120, 300 * percent, false, mArcPaint);
-        //4.绘制圆弧里面的文字
+       /* mBackgroundPaint.setColor(mThemeColor);*/
+      /*  drawBelowBackground(canvas);*/
+        //suger_cart.绘制上面的背景
+       /* mBackgroundPaint.setColor(mUpBackgroundColor);*/
+      /*  drawUpBackground(0, 0, mWidth, mWidth, mBackgroundCorner, canvas, mBackgroundPaint);*/
+        //bp_cart.绘制圆弧
+      /*  canvas.drawArc(mArcRect, 120, 300 * percent, false, mArcPaint);*/
+        //heart.绘制圆弧里面的文字
         xPos = mArcCenterX;
-        yPos = (int) (mArcCenterY - 40.f / 525.f * mHeight);
+        yPos = (int) (mArcCenterY - 15.f / 450.f * mHeight);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
-        mTextPaint.setTextSize(15.f / 450.f * mWidth);
-        mTextPaint.setColor(Color.parseColor("#C1C1C1"));
+        mTextPaint.setTextSize(20.f / 450.f * mWidth);
+        mTextPaint.setColor(Color.parseColor("#ffffff"));
         canvas.drawText("截至12:50分已驾驶", xPos, yPos, mTextPaint);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
-        mTextPaint.setTextSize(42.f / 450.f * mWidth);
-        mTextPaint.setColor(mThemeColor);
-        canvas.drawText(step + " ", mArcCenterX, mArcCenterY, mTextPaint);
-        yPos=(int)(mArcCenterY+25.f/525.f * mHeight);
-        mTextPaint.setColor(Color.parseColor("#C1C1C1"));
-        mTextPaint.setTextSize(13.f / 450.f * mWidth);
+        mTextPaint.setTextSize(50.f / 450.f * mWidth);
+        mTextPaint.setColor(mDefaultUpBackgroundColor);
+        canvas.drawText(step + " ", mArcCenterX, mArcCenterY+30.f/450.f*mWidth, mTextPaint);
+        yPos=(int)(mArcCenterY+60.f/450.f * mHeight);
+        mTextPaint.setColor(Color.parseColor("#ffffff"));
+        mTextPaint.setTextSize(20.f / 450.f * mWidth);
         canvas.drawText("小时",mArcCenterX, yPos, mTextPaint);
-        yPos = (int) (mArcCenterY + 70.f / 525.f * mHeight);
+        yPos = (int) (mArcCenterY + 150.f / 525.f * mHeight);
         mTextPaint.setColor(Color.parseColor("#C1C1C1"));
-        mTextPaint.setTextSize(13.f / 450.f * mWidth);
-        canvas.drawText("好友平均驾驶", mArcCenterX, yPos, mTextPaint);
-        xPos = (int) (mArcCenterX - 35.f / 450.f * mWidth);
-        yPos = (int) (mArcCenterY + 120.f / 525.f * mHeight);
-        canvas.drawText("第", xPos, yPos, mTextPaint);
-        xPos = (int) (mArcCenterX + 35.f / 450.f * mWidth);
-        canvas.drawText("名", xPos, yPos, mTextPaint);
+        mTextPaint.setTextSize(20.f / 450.f * mWidth);
+        canvas.drawText("平均每天驾驶", mArcCenterX, yPos, mTextPaint);
+        xPos = (int) (mArcCenterX + 15.f / 450.f * mWidth);
+        yPos = (int) (mArcCenterY + 150.f / 450.f * mHeight);
+      /*  canvas.drawText("第", xPos, yPos, mTextPaint);*/
+       /* xPos = (int) (mArcCenterX + 35.f / 450.f * mWidth);*/
+        canvas.drawText(" h", xPos, yPos, mTextPaint);
         mTextPaint.setColor(mThemeColor);
         mTextPaint.setTextSize(24.f / 450.f * mWidth);
         canvas.drawText("10", mArcCenterX, yPos, mTextPaint);
-        //5.绘制圆弧下面的文字
+       /* //5.绘制圆弧下面的文字
         xPos = (int) (25.f / 450.f * mWidth);
         yPos = (int) (330.f / 525.f * mHeight);
         mTextPaint.setTextAlign(Paint.Align.LEFT);
@@ -377,7 +349,7 @@ public class HealthyView extends View {
             canvas.drawText("0" + (i + 1) + "日", startX, startY + 25.f / 525.f * mHeight, mTextPaint);
         }
         //8.绘制蓝色层的文字以及头像
-        yPos = (mHeight - mWidth) / 2.f + mWidth + 20.f / 450.f * mWidth / 2;
+        yPos = (mHeight - mWidth) / suger_cart.f + mWidth + 20.f / 450.f * mWidth / suger_cart;
         xPos = 80.f / 450.f * mWidth;
         mTextPaint.setColor(Color.WHITE);
         mTextPaint.setTextSize(20.f / 450.f * mWidth);
@@ -388,9 +360,9 @@ public class HealthyView extends View {
         Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.touxiang);
         Rect dst = new Rect();//头像绘制到的矩形
         int rectWidth = (int) (30.f / 525.f * mHeight);//矩形的宽度
-        dst.top = (int) ((mHeight - mWidth) / 2.f + mWidth - rectWidth / 2.f);
+        dst.top = (int) ((mHeight - mWidth) / suger_cart.f + mWidth - rectWidth / suger_cart.f);
         dst.left = (int) (xPos - 40.f / 450 * mWidth);
-        dst.bottom = (int) ((mHeight - mWidth) / 2.f + mWidth + rectWidth / 2.f);
+        dst.bottom = (int) ((mHeight - mWidth) / suger_cart.f + mWidth + rectWidth / suger_cart.f);
         dst.right = (int) (xPos - 10.f / 450 * mWidth);
         bitmap = toRoundBitmap(bitmap);
         canvas.drawBitmap(bitmap, null, dst, mAvatarPaint);//绘制头像
@@ -398,12 +370,12 @@ public class HealthyView extends View {
         xPos = 425.f / 450.f * mWidth;
         mTextPaint.setTextAlign(Paint.Align.RIGHT);
         mTextPaint.setTextSize(15.f / 450.f * mWidth);
-        canvas.drawText("查看 >", xPos, yPos, mTextPaint);
+        canvas.drawText("查看 >", xPos, yPos, mTextPaint);*/
 
 
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    /*@SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
@@ -419,7 +391,7 @@ public class HealthyView extends View {
         } else {
             return super.onTouchEvent(event);
         }
-    }
+    }*/
 
 
 

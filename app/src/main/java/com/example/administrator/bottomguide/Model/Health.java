@@ -6,7 +6,7 @@ public class Health {
     private String healthinfo;
     private String healthdata;
 
-    public Health(int imageId, String info,String data) {
+    public Health(int imageId, String data,String info) {
       this.imageId=imageId;
       this.healthinfo=info;
       this.healthdata=data;
@@ -15,12 +15,11 @@ public class Health {
     public int getImageId() {
         return imageId;
     }
-
-    public String getHealthinfo() {
-        return healthinfo;
-    }
     public String getHealthdata() {
         return healthdata;
+    }
+    public String getHealthinfo() {
+        return healthinfo;
     }
 
 }

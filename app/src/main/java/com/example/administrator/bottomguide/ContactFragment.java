@@ -27,6 +27,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.bottomguide.Adapter.ContactAdapter;
 import com.example.administrator.bottomguide.DB.DatabaseHelper;
 
 import java.net.URI;
@@ -42,6 +43,8 @@ public class ContactFragment extends Fragment{
     public EditText addName, addTel;
     public ImageView Update,Delete;
     public TextView name,tel;
+    public ContactAdapter adapter;
+    public int Limt=0;
     public ContactFragment() {
         // Required empty public constructor
 
@@ -63,14 +66,18 @@ public class ContactFragment extends Fragment{
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_contact, container, false);
         listView= view.findViewById(R.id.listView);//引用一个list来接收系统联系人的信息
-
+        listView.setAdapter(adapter);
         getRelationFromDB();//数据库操作方法
         ImageView add= view.findViewById(R.id.image);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //弹出对话框,创建新的联系人,传入的字段为"",不能写成null,否则程序会报错.
-                 dialogshow("","");
+                if(Limt<=2&Limt>=0) {
+                    dialogshow("", "");
+                    Limt++;
+                    Log.e("YT:", String.valueOf(Limt));
+                }
             }
         });
         return view;
@@ -87,6 +94,7 @@ public class ContactFragment extends Fragment{
         int[] to={R.id.name,R.id.tel};
         //设置适配器
         SimpleCursorAdapter scadapter=new SimpleCursorAdapter(getContext(),R.layout.relationlist,cursor,from,to);
+        listView.setAdapter(adapter);
         listView.setAdapter(scadapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -98,12 +106,15 @@ public class ContactFragment extends Fragment{
                 name=view.findViewById(R.id.name);
                 tel=view.findViewById(R.id.tel);
 
-                //Log.e("YT:",name.toString());
+
                 final long temp=id;
                 //删除信息
                 Delete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        Limt=Limt-1;
+                        Log.e("YT:", String.valueOf(Limt));
                         AlertDialog.Builder adBuilder=new AlertDialog.Builder(getActivity());
                         adBuilder.setMessage("确认要删除联系人吗?").setPositiveButton("确认", new DialogInterface.OnClickListener() {
                             @Override

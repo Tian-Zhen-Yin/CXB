@@ -3,13 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".settingFragment">
+    tools:context=".PersonalFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="设置"
-         />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:src="@drawable/index_top"
 
+         />
+    <com.example.administrator.bottomguide.View.HealthyView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </FrameLayout>

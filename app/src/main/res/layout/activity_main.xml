@@ -10,17 +10,18 @@
         android:layout_height="match_parent"
         android:clickable="true"
         />
+
     <TextView
         android:id="@+id/location_errInfo_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/red"
-        android:textColor="@color/darkgrey"
         android:text="TextView"
-        android:visibility="gone"/>
+        android:textColor="@color/darkgrey"
+        android:visibility="gone" />
 
 
 </LinearLayout>

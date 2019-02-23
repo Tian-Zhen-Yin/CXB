@@ -32,8 +32,8 @@ public class HealthAdapter extends RecyclerView.Adapter<HealthAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull HealthAdapter.ViewHolder viewHolder, int i) {
      Health health=mHealth.get(i);
-     viewHolder.healthicon.setImageResource(health.getImageId());
-     viewHolder.healthdata.setText(health.getHealthdata());
+     viewHolder.health_icon.setImageResource(health.getImageId());
+     viewHolder.health_data.setText(health.getHealthdata());
      viewHolder.health_info.setText(health.getHealthinfo());
 
     }
@@ -44,15 +44,15 @@ public class HealthAdapter extends RecyclerView.Adapter<HealthAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView healthicon;
+        ImageView health_icon;
         TextView  health_info;
-        TextView  healthdata;
+        TextView  health_data;
         public ViewHolder(@NonNull View view) {
 
             super(view);
-            healthicon=(ImageView) view.findViewById(R.id.health_image);
-            health_info=(TextView) view.findViewById(R.id.healthinfo);
-            healthdata=(TextView) view.findViewById(R.id.healthdata);
+            health_icon=(ImageView) view.findViewById(R.id.health_image);
+            health_data=(TextView) view.findViewById(R.id.health_data);
+            health_info=(TextView) view.findViewById(R.id.health_info);
 
         }
     }

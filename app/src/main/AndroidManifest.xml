@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.administrator.bottomguide">
-
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -21,12 +21,7 @@
     <uses-feature android:name="android.hardware.location.gps" />
     <uses-feature
         android:name="android.hardware.bluetooth_le"
-        android:required="true" />
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+        android:required="true" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
 
@@ -38,7 +33,12 @@
         android:label="车行宝"
         android:roundIcon="@mipmap/icon_72"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".EnvironmentActivity"></activity>
+        <activity android:name=".HealthActivity" />
+        <activity android:name=".BlueTooth.BlueToothActivity" />
+
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="8fb16e10b44365f58cb5d7f024521921" />
@@ -46,7 +46,7 @@
         <service android:name="com.amap.api.location.APSService" />
 
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".MainActivity"
             android:label="车行宝">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +64,7 @@
         <activity android:name=".RankActivity" />
         <activity android:name=".View.AddRelationActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SplashScreenActivity" />
     </application>
 
 </manifest>

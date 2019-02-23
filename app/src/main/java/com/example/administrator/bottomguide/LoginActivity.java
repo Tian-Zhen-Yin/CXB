@@ -4,9 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -140,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-        //获取验证码
+    //获取验证码
 
 
     @OnClick({R.id.btn_login,R.id.send,R.id.cancel})

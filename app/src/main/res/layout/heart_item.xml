@@ -1,50 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/heart_item"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:orientation="horizontal"
-    android:layout_marginRight="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="5dp"
-    android:background="@drawable/text_view_border"
-
+    android:layout_width="120dp"
+    android:layout_height="180dp"
      >
 
     <ImageView
         android:id="@+id/health_image"
-        android:layout_width="5dp"
-        android:layout_height="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="1"
+        android:src="@drawable/heart_cart"
          />
 
 
     <TextView
-        android:id="@+id/healthinfo"
+        android:id="@+id/health_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="4"
-        android:textSize="16sp"
-        android:textAlignment="center"/>
+        android:text="105次 / 分"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"/>
 
     <TextView
-        android:id="@+id/healthdata"
+        android:id="@+id/health_info"
+        android:layout_below="@id/health_data"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="4"
-        android:textSize="16sp"/>
+        android:text="较快"
+        android:textSize="14sp"
+        android:textColor="@color/white"/>
 
-    <Button
-        android:id="@+id/look"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="2dp"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:text="查看>"
-        android:textSize="12sp" />
-</LinearLayout>
+
+</RelativeLayout>

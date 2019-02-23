@@ -17,7 +17,7 @@
         android:title="消息" />
     <item
         android:id="@+id/guide"
-        android:icon="@drawable/ic_guide"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="导航" />
 
 </menu>

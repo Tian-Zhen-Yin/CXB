@@ -61,7 +61,7 @@ public class SplashScreenActivity extends Activity {
         finish();// 销毁当前活动界面
     }
 
-    }
+}
 
 
 
